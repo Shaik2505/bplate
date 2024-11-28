@@ -27,7 +27,8 @@ function Root() {
   }, [themeMode]);
 
   return (
-    <ThemeProvider value={{ themeMode, darkTheme, lightTheme }}>
+   <div className="dark:bg-black">
+     <ThemeProvider value={{ themeMode, darkTheme, lightTheme }}>
       <BrowserRouter
         future={{
           v7_startTransition: true,
@@ -37,6 +38,7 @@ function Root() {
         <App />
       </BrowserRouter>
     </ThemeProvider>
+   </div>
   );
 }
 

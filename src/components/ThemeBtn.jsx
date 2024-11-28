@@ -14,18 +14,16 @@ function ThemeBtn() {
   };
 
   return (
-    <>
-      <button
-        className=" text-[#00df9a] font-bold py-2 px-4 rounded"
-        onClick={toggleTheme}
-      >
-        {themeMode === "light" ? (
-          <FaMoon aria-hidden="true" className="size-6 text-white" />
-        ) : (
-          <FaSun aria-hidden="true" className="size-6 text-white" />
-        )}
-      </button>
-    </>
+    <button
+      className="text-[#00df9a] font-bold py-2 px-4 rounded"
+      onClick={toggleTheme}
+    >
+      {themeMode === "light" ? (
+        <FaMoon aria-hidden="true" className="size-6 text-white" />
+      ) : (
+        <FaSun aria-hidden="true" className="size-6 text-white" />
+      )}
+    </button>
   );
 }
 

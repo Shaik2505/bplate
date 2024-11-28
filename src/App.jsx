@@ -5,20 +5,41 @@ import Body from "./components/Body";
 import Login from "./pages/Login";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
+import ProtectedRoute from "./components/ProtectedRoutes";
+import { useState, useEffect } from "react";
+import UserProfile from "./pages/UserProfile";
 
 const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem("isAuthenticated") === "true"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("isAuthenticated", isAuthenticated);
+  }, [isAuthenticated]);
+
   return (
-    <Routes>
-      {/* Login Route */}
-      <Route path="/" element={<Login />} />
-      
-      {/* Wrap the Body component and add its child routes */}
-      <Route path="/body" element={<Body />}>
-        <Route path="home" element={<Home />} /> {/* Relative path */}
-        <Route path="about" element={<AboutUs />} /> {/* Relative path */}
-        <Route path="contactUs" element={<Contact />} /> {/* Relative path */}
-      </Route>
-    </Routes>
+    <div>
+      <Routes>
+        <Route
+          path="/"
+          element={<Login setIsAuthenticated={setIsAuthenticated} />}
+        />
+        <Route
+          path="/body"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Body />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<AboutUs />} />
+          <Route path="contactUs" element={<Contact />} />
+          <Route path="profile" element={<UserProfile />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };
 

@@ -25,3 +25,8 @@ Run the following command in your terminal to remove the packages:
 - 2. You can delete them manually or use the terminal command : rm tailwind.config.js postcss.config.js
 - 3. Remove Tailwind Directives from index.css
 
+# Run Server
+
+- cd src
+
+- run this command: json-server --watch database.json --port 5000

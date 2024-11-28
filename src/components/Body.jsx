@@ -7,7 +7,6 @@ const Body = () => {
     <>
       <Navbar />
       <div className="main-content">
-        {/* Render the nested child routes */}
         <Outlet />
       </div>
     </>
