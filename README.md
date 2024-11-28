@@ -29,4 +29,4 @@ Run the following command in your terminal to remove the packages:
 
 - cd src
 
-- run this command: json-server --watch database.json --port 5000
+- run this command: json-server --watch database.json --port 3000
